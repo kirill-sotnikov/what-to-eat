@@ -8,7 +8,7 @@ const Search = ({
   return (
     <div className="Search__block">
       <input
-        placeholder="Введите продукт"
+        placeholder="Введите продукт, например: картофель"
         className="Search__input"
         onChange={(e) => onChangeINput(e)}
       />

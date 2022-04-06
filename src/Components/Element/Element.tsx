@@ -5,11 +5,7 @@ const Element = ({ EatItem }: { EatItem: eatListType }) => {
   return (
     <div className="Elemnt__block">
       <div className="Block__imgblock">
-        <img
-          className="Block__img"
-          src="https://cdn.vkuso.ru/uploads/cache/thumb/3e/12afc8a084b1d3e_250x187.jpg"
-          alt="eat"
-        />
+        <img className="Block__img" src={EatItem.imgUrl} alt="eat" />
       </div>
       <div className="Block__text">
         <h1 className="Block__h1">{EatItem.name}</h1>
