@@ -7,6 +7,7 @@ export default function AddBlock({
 }) {
   const [title, setTitle] = useState<string>("");
   const [comp, setComp] = useState<string>("");
+  const [recept, setRecept] = useState<string>("");
 
   function OnInput(e: React.ChangeEvent<HTMLTextAreaElement>) {
     e.target.style.height = "auto";
@@ -14,7 +15,7 @@ export default function AddBlock({
   }
 
   function createEat() {
-    localStorage.setItem(title, comp);
+    localStorage.setItem(title, `${comp} $ ${recept}`);
   }
 
   return (
@@ -31,6 +32,14 @@ export default function AddBlock({
         }}
         className="comp"
         placeholder="Мед, сахар, варенье"
+      />
+      <textarea
+        onChange={(e) => {
+          OnInput(e);
+          setRecept(e.target.value);
+        }}
+        className="comp"
+        placeholder="Налить воды, взбить яица..."
       />
       <button
         onClick={() => {

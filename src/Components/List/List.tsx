@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { EatListContext, eatListType } from "../../Context/context";
 import Element from "../Element/Element";
 const List = ({ searchTag }: { searchTag: string[] }) => {

@@ -10,7 +10,6 @@ function App() {
   const [searchTag, setSearchTag] = useState<string[]>([]);
   const [showAddBlock, setshowAddBlock] = useState<boolean>(false);
   const [eats, setEats] = useState(eatList);
-  const [eatListWithLocalSt, setEatListWithLocalSt] = useState();
 
   function onChangeINput(e: React.ChangeEvent<HTMLInputElement>) {
     setSearchTag(e.target.value.split(" "));
@@ -21,12 +20,15 @@ function App() {
       const a = localStorage.key(i);
       if (a) {
         const b = localStorage.getItem(a);
-        if (b) {
+        const compAndRecept = b?.split("$");
+        if (b && compAndRecept) {
           const obj: eatListType = {
             name: a,
-            comp: [...b.split(", ")],
+            comp: [...compAndRecept[0].split(", ")],
+            isLocalStorage: true,
             imgUrl:
               "https://st2.depositphotos.com/1001599/7127/v/450/depositphotos_71271339-stock-illustration-hot-meal-in-bowl-thin.jpg",
+            recept: compAndRecept[1],
           };
           if (!eats.find((item) => item.name === obj.name)) {
             setEats((state) => [...state, obj]);
